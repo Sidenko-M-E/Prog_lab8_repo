@@ -39,6 +39,7 @@ namespace Prog_lab6
 			demoFio.Display();
 			*/
 
+			/*
 			Console.Write("\n---class and struct difference---\n");
 			Fio myFio = new Fio();
 			myFio.Surname = "Komolov";
@@ -64,6 +65,7 @@ namespace Prog_lab6
 
 			Console.Write("\nFinal value of demoFio:\n");
 			demoFio.Display();
+			*/
 
 			//Console.Write("\n--------Human class--------\n");
 			//Console.Write("------init method-------\n");
@@ -194,6 +196,19 @@ namespace Prog_lab6
 			++demoTeacher;
 			demoTeacher.Display();
 			*/
+
+			Console.Write("\nStatic method demo\n");
+			Fio myFio = new Fio();
+			myFio.Init("Popov", "Alexandr", "Dmitrievich");
+			Human myHuman = new Human();
+			myHuman.Init(1913, 43, 182, 70.89, 'F', myFio);
+			Teacher myTeacher = new Teacher();
+			myTeacher.Init(18, "Candidate of Mathematical Sciences", "FoMS", myHuman);
+			Console.Write("Teacher:\n");
+			myTeacher.Display();
+			Console.Write("\nAnd his salary is...\n");
+			Console.Write(Teacher.GetSalaryOf(myTeacher));
+
 
 			//Console.Write("\n--------Faculty class--------\n");
 			//Console.Write("-------Init method-------\n");

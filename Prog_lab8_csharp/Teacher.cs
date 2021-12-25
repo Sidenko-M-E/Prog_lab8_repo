@@ -4,12 +4,36 @@ namespace Prog_lab6
 {
 	public class Teacher
 	{
+		//Static fields and methods
+		private static double baseSalary = 23456.78;
+		static public double GetSalaryOf(Teacher bufTeacher)
+		{
+			double result = 0;
+			int bufWorkExp = bufTeacher.GetWorkExp();
+			if (bufWorkExp >= 0 && bufWorkExp <= 3)
+				result = baseSalary;
+
+			if (bufWorkExp >= 4 && bufWorkExp <= 7)
+				result = baseSalary * 1.3;
+
+			if (bufWorkExp >= 8 && bufWorkExp <= 14)
+				result = baseSalary * 1.6;
+
+			if (bufWorkExp >= 15 && bufWorkExp <= 24)
+				result = baseSalary * 2.2;
+
+			if (bufWorkExp >= 25)
+				result = baseSalary * 3.1;
+
+			result = Math.Round(result, 2, MidpointRounding.AwayFromZero);
+			return (result);
+		}
+
 		//Attributes
 		private int workExp;
 		private string degree;
 		private string facultyName;
 		public Human humanField = new Human();
-
 
 		//Properties
 		public int WorkExp
@@ -102,7 +126,6 @@ namespace Prog_lab6
 				return (false);
 			}
 		}
-
 		public bool SetDegree(string bufString)
 		{
 			if (string.IsNullOrEmpty(bufString))
@@ -119,7 +142,6 @@ namespace Prog_lab6
 			degree = new string (bufString.ToCharArray());
 			return (false);
 		}
-
 		public bool SetFacultyName(string bufString)
 		{
 			if (string.IsNullOrEmpty(bufString))
@@ -136,16 +158,14 @@ namespace Prog_lab6
 			facultyName = new string (bufString.ToCharArray());
 			return (false);
 		}
-
+		
 		public int GetWorkExp()
 		{ return (workExp); }
-
 		public string GetDegree()
 		{
 			string outputString = new string(degree.ToCharArray());
 			return (outputString);
 		}
-
 		public string GetFacultyName()
 		{
 			string outputString = new string(facultyName.ToCharArray());
@@ -162,12 +182,10 @@ namespace Prog_lab6
 				HumanField = operatorTeacher.HumanField
 			});
 		}
-
 		public static int operator +(int operatorWorkExp, Teacher operatorTeacher)
 		{
 			return (operatorTeacher.workExp + operatorWorkExp);
 		}
-
 		public static Teacher operator ++(Teacher operatorTeacher)
 		{
 			++operatorTeacher.workExp;
@@ -190,7 +208,6 @@ namespace Prog_lab6
 				return (false);
 			}
 		}
-
 		public bool Read()
 		{
 			Teacher check = new Teacher();
@@ -222,7 +239,6 @@ namespace Prog_lab6
 			return (false);
 
 		}
-
 		public void Display()
 		{
 			Console.Write("working experience: {0} years\n", workExp);
