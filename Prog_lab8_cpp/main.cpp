@@ -72,9 +72,10 @@ int main()
 		myHuman.Display();
 	*/
 
+	
+	//cout << "\n--------Student class--------\n";
+	//cout << "-------Init method-------\n";
 	/*
-	cout << "\n--------Student class--------\n";
-	cout << "-------Init method-------\n";
 	Student myStudent;
 	if (myStudent.Init(3, "Bachelor", "PI-03", "FoIT", myHuman))
 		cout << "error\n";
@@ -118,7 +119,6 @@ int main()
 	else
 		myTeacher.Display();
 	*/
-
 	/*
 	cout << "\n----operator overloading demo----\n";
 	Teacher demoTeacher;
@@ -141,14 +141,30 @@ int main()
 	demoTeacher.Display();
 	*/
 
+	cout << "\nStatic method demo\n";
+	Fio myFio;
+	myFio.Init("Popov", "Alexandr", "Dmitrievich");
+	Human myHuman;
+	myHuman.Init(1913, 43, 182, 70.89, 'F', myFio);
+	Teacher myTeacher;
+	myTeacher.Init(18, "Candidate of Mathematical Sciences", "FoMS", myHuman);
+	cout << "Teacher:\n";
+	myTeacher.Display();
+	cout << "\nAnd his salary is...\n";
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	cout << myTeacher.GetSalaryOf(myTeacher);
+	cout.unsetf(ios::fixed);
+
+	/*
 	cout << "\n------Faculty class----------\n";
 	cout << "-------Init method-------\n";
 	Faculty myFaculty;
 	if (myFaculty.Init("FoHS", 180, 145, 35, 40, 20, 5, 70));
-	//	cout << "error\n";
-	//else
-	//	myFaculty.Display();
-	
+		cout << "error\n";
+	else
+		myFaculty.Display();
+	*/
 	/*
 	cout << "\n------Read method------\n";
 	if (myFaculty.Read())
@@ -180,6 +196,7 @@ int main()
 	cout << "And result is...\n";
 	(myFaculty.GetWithMoreCandidates(demoFaculty)).Display();
 	*/
+	/*
 	cout << "\nLets check the faculties to find the one...\n";
 	cout << "...that have enough candidates on it.\n";
 	bool result;
@@ -203,7 +220,7 @@ int main()
 		cout << "Second faculty have enough candidates.\n";
 	else
 		cout << "Second faculty have not enough candidates.\n";
-		
+	*/	
 	/*
 	cout << "\n------dynamic memmory demo------\n";
 	cout << "----dynamic array of objects----\n";

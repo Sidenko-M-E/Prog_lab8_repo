@@ -1,5 +1,6 @@
 #include "Teacher.h"
 #include <iostream>
+#include <cmath>
 
 
 bool Teacher::SetWorkExp(int buf)
@@ -60,6 +61,7 @@ string Teacher::GetFacultyName()
 	return (facultyName);
 }
 
+
 Teacher Teacher::operator+(int operatorWorkExp)
 {
 	Teacher resultObject;
@@ -87,6 +89,32 @@ Teacher Teacher::operator++(int unused)//postfix
 	++*this;
 	return resultObject;
 }
+
+double Teacher::GetSalaryOf(Teacher& bufTeacher)
+{
+	double result = 0;
+	int bufWorkExp = bufTeacher.GetWorkExp();
+	if (bufWorkExp >= 0 && bufWorkExp <= 3)
+		result = baseSalary;
+
+	if (bufWorkExp >= 4 && bufWorkExp <= 7)
+		result = baseSalary * 1.3;
+
+	if (bufWorkExp >= 8 && bufWorkExp <= 14)
+		result = baseSalary * 1.6;
+
+	if (bufWorkExp >= 15 && bufWorkExp <= 24)
+		result = baseSalary * 2.2;
+
+	if (bufWorkExp >= 25)
+		result = baseSalary * 3.1;
+
+	result = round(result * 100) / 100;
+	return (result);
+}
+
+double Teacher::baseSalary = 23456.78;
+
 
 bool Teacher::Init(int bufWorkExp, string bufDegree, string bufFacultyName, Human bufHuman)
 {

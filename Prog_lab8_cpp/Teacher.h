@@ -7,6 +7,7 @@ private:
 	int workExp;
 	string degree;
 	string facultyName;
+	static double baseSalary;
 
 public:
 	Human humanField;
@@ -23,6 +24,7 @@ public:
 	friend int operator+ (int operatorWorkExp, Teacher operatorTeacher); //int+Teacher=int
 	Teacher& operator++();//prefix
 	Teacher operator++(int unused);//postfix
+	static double GetSalaryOf(Teacher& bufTeacher);
 
 	bool Init(int bufWorkExp, string bufDegree, string bufFacultyName, Human bufHuman);
 	bool Read();

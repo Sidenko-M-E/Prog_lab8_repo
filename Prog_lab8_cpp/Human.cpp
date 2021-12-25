@@ -39,7 +39,7 @@ bool Human::SetHeight(int buf)
 
 bool Human::SetWeight(double buf)
 {
-	buf = round(buf * 10) / 10;
+	buf = round(buf * 100) / 100;
 	if (buf < 0 || buf > 650)
 		return (true);
 	else
@@ -150,8 +150,10 @@ void Human::Display()
 	cout << "id: " << id << endl;
 	cout << "age: " << age << endl;
 	cout << "height: " << height << endl;
-	cout << "weight: " << weight << endl;
+	cout.setf(ios::fixed);
 	cout.precision(2);
+	cout << "weight: " << weight << endl;
+	cout.unsetf(ios::fixed);
 	cout << "gender: " << gender << endl;
 	fioField.Display();
 }
